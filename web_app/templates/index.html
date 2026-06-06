@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <title>Big Data Spam Detector</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f6f9; padding: 40px; }
+        .container { max-width: 600px; background: white; margin: 0 auto; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h2 { color: #2c3e50; text-align: center; }
+        textarea { width: 100%; height: 120px; padding: 12px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 14px; }
+        button { width: 100%; background-color: #3498db; color: white; padding: 12px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; margin-top: 15px; }
+        .result-box { margin-top: 25px; padding: 15px; border-radius: 4px; font-weight: bold; text-align: center; }
+        .spam { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .ham { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .flow-info { margin-top: 30px; font-size: 12px; color: #7f8c8d; border-top: 1px solid #eee; padding-top: 15px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Real-time Spam Detector (Kafka + Spark Framework)</h2>
+    <form action="/analyze" method="post">
+        <textarea name="text" placeholder="Մուտքագրեք տեքստը այստեղ..." required>{{ text if text }}</textarea>
+        <button type="submit">Ստուգել Իրական Ժամանակում</button>
+    </form>
+
+    {% if result %}
+        <div class="result-box {% if result == 'SPAM' %}spam{% else %}ham{% endif %}">
+            Արդյունք: {{ result }}
+        </div>
+    {% endif %}
+
+    <div class="flow-info">
+        <strong>Տվյալների հոսքի ճանապարհը (Pipeline):</strong><br>
+        Web UI → Kafka (`spam-requests`) → Spark Structured Streaming (ML Inference) → Kafka (`spam-responses`) → Web UI
+    </div>
+</div>
+</body>
+</html>
