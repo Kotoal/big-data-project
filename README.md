@@ -1,4 +1,7 @@
 Real-time Big Data Spam Detector (Kafka + Spark Structured Streaming Simulation)
+Կատարողներ - Ալբերտ Բաղրամյան https://github.com/Kotoal
+             Արշակ Հովհանիսյան https://github.com/arshakhovhannisyannn-coder
+
 
 📌 Նախագծի Նկարագրություն
 Այս նախագիծը իրական ժամանակում (Real-time) սպամ հաղորդագրությունների հայտնաբերման համակարգ է, որը կառուցված է **FastAPI**, **Machine Learning (Scikit-learn)** և Big Data էկոհամակարգի առաջատար գործիքների (**Apache Kafka** ու **Apache Spark**) տրամաբանական սիմուլյացիայի հիման վրա։
